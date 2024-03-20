@@ -64,7 +64,8 @@ connection.onInitialize(function (params) {
             textDocumentSync: node_1.TextDocumentSyncKind.Incremental,
             // Tell the client that this server supports code completion.
             completionProvider: {
-                resolveProvider: true
+                resolveProvider: true,
+                triggerCharacters: ['.'],
             },
             diagnosticProvider: {
                 interFileDependencies: false,
@@ -216,6 +217,67 @@ connection.onCompletion(function (_textDocumentPosition) {
     // The pass parameter contains the position of the text document in
     // which code complete got requested. For the example we ignore this
     // info and always provide the same completion items.
+    var document = documents.get(_textDocumentPosition.textDocument.uri);
+    if (!document)
+        return []; // Ensure the document is available
+    // Get the text at the current line up to the cursor position
+    var line = document.getText({
+        start: { line: _textDocumentPosition.position.line, character: 0 },
+        end: _textDocumentPosition.position
+    });
+    if (/strings\.\s*$/.test(line)) {
+        return [
+            {
+                label: 'has_prefix()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 1
+            },
+            {
+                label: 'has_suffix()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 2
+            },
+            {
+                label: 'join()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 3
+            },
+            {
+                label: 'trim_prefix()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 4
+            },
+            {
+                label: 'to_lower()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 5
+            },
+            {
+                label: 'to_upper()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 6
+            },
+            {
+                label: 'split()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 7
+            }
+        ];
+    }
+    if (/json\.\s*$/.test(line)) {
+        return [
+            {
+                label: 'marshal()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 1
+            },
+            {
+                label: 'unmarshal()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 2
+            },
+        ];
+    }
     return [
         {
             label: 'import',
@@ -228,75 +290,135 @@ connection.onCompletion(function (_textDocumentPosition) {
             data: 2
         },
         {
-            label: 'length()',
-            kind: node_1.CompletionItemKind.Method,
-            data: 3
-        },
-        {
-            label: 'has_prefix()',
-            kind: node_1.CompletionItemKind.Method,
-            data: 4
-        },
-        {
             label: 'as',
             kind: node_1.CompletionItemKind.Keyword,
-            data: 5
+            data: 3
         },
         {
             label: 'filter',
             kind: node_1.CompletionItemKind.Keyword,
-            data: 6
+            data: 4
         },
         {
             label: 'if',
             kind: node_1.CompletionItemKind.Keyword,
-            data: 8
+            data: 5
         },
         {
             label: 'break',
             kind: node_1.CompletionItemKind.Keyword,
-            data: 9
+            data: 6
         },
         {
             label: 'continue',
             kind: node_1.CompletionItemKind.Keyword,
-            data: 10
-        },
-        {
-            label: 'has_suffix()',
-            kind: node_1.CompletionItemKind.Method,
-            data: 11
+            data: 7
         },
         {
             label: 'in',
             kind: node_1.CompletionItemKind.Keyword,
-            data: 12
+            data: 8
         },
         {
             label: 'null',
             kind: node_1.CompletionItemKind.Keyword,
-            data: 13
-        },
-        {
-            label: 'print()',
-            kind: node_1.CompletionItemKind.Method,
-            data: 14
-        },
-        {
-            label: 'append()',
-            kind: node_1.CompletionItemKind.Method,
-            data: 15
-        },
-        {
-            label: 'delete()',
-            kind: node_1.CompletionItemKind.Method,
-            data: 16
+            data: 9
         },
         {
             label: 'rule',
             kind: node_1.CompletionItemKind.Keyword,
+            data: 10
+        },
+        {
+            label: 'param',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 11
+        },
+        {
+            label: 'default',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 12
+        },
+        {
+            label: 'map',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 13
+        },
+        {
+            label: 'strings',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 14
+        },
+        {
+            label: 'json',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 15
+        },
+        {
+            label: 'http',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 16
+        },
+        {
+            label: 'types',
+            kind: node_1.CompletionItemKind.Keyword,
             data: 17
-        }
+        },
+        {
+            label: 'decimal',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 18
+        },
+        {
+            label: 'base64',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 19
+        },
+        {
+            label: 'time',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 20
+        },
+        {
+            label: 'print()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 21
+        },
+        {
+            label: 'error()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 22
+        },
+        {
+            label: 'length()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 23
+        },
+        {
+            label: 'append()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 24
+        },
+        {
+            label: 'delete()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 25
+        },
+        {
+            label: 'range()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 26
+        },
+        {
+            label: 'keys()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 27
+        },
+        {
+            label: 'values()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 28
+        },
     ];
 });
 // This handler resolves additional information for the item selected in

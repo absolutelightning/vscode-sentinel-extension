@@ -56,7 +56,8 @@ connection.onInitialize((params: InitializeParams) => {
 			textDocumentSync: TextDocumentSyncKind.Incremental,
 			// Tell the client that this server supports code completion.
 			completionProvider: {
-				resolveProvider: true
+				resolveProvider: true,
+				triggerCharacters: ['.'],
 			},
 			diagnosticProvider: {
 				interFileDependencies: false,
@@ -216,6 +217,71 @@ connection.onCompletion(
 		// which code complete got requested. For the example we ignore this
 		// info and always provide the same completion items.
 
+		let document = documents.get(_textDocumentPosition.textDocument.uri);
+		if (!document) return []; // Ensure the document is available
+
+		// Get the text at the current line up to the cursor position
+		let line = document.getText({
+			start: { line: _textDocumentPosition.position.line, character: 0 },
+			end: _textDocumentPosition.position
+		});
+
+		if (/strings\.\s*$/.test(line)) {
+			return [
+				{
+					label: 'has_prefix()',
+					kind: CompletionItemKind.Method,
+					data: 1
+				},
+				{
+					label: 'has_suffix()',
+					kind: CompletionItemKind.Method,
+					data: 2
+				},
+				{
+					label: 'join()',
+					kind: CompletionItemKind.Method,
+					data: 3
+				},
+				{
+					label: 'trim_prefix()',
+					kind: CompletionItemKind.Method,
+					data: 4
+				},
+				{
+					label: 'to_lower()',
+					kind: CompletionItemKind.Method,
+					data: 5
+				},
+				{
+					label: 'to_upper()',
+					kind: CompletionItemKind.Method,
+					data: 6
+				},
+				{
+					label: 'split()',
+					kind: CompletionItemKind.Method,
+					data: 7
+				}
+			]
+		}
+
+		if (/json\.\s*$/.test(line)) {
+			return [
+				{
+					label: 'marshal()',
+					kind: CompletionItemKind.Method,
+					data: 1
+				},
+				{
+					label: 'unmarshal()',
+					kind: CompletionItemKind.Method,
+					data: 2
+				},
+			]
+		}
+
+
 		return [
 			{
 				label: 'import',
@@ -228,135 +294,134 @@ connection.onCompletion(
 				data: 2
 			},
 			{
-
-				label: 'length()',
-				kind: CompletionItemKind.Method,
-				data: 3
-			}, 
-			{
-				label: 'has_prefix()',
-				kind: CompletionItemKind.Method,
-				data: 4
-			},
-			{
 				label: 'as',
 				kind: CompletionItemKind.Keyword,
-				data: 5
+				data: 3
 			},
 			{
 				label: 'filter',
 				kind: CompletionItemKind.Keyword,
-				data: 6
+				data: 4
 			},
 			{
 				label: 'if',
 				kind: CompletionItemKind.Keyword,
-				data: 8
+				data: 5
 			},
 			{
 				label: 'break',
 				kind: CompletionItemKind.Keyword,
-				data: 9
+				data: 6
 			},
 			{
 				label: 'continue',
 				kind: CompletionItemKind.Keyword,
-				data: 10
-			},
-			{
-				label: 'has_suffix()',
-				kind: CompletionItemKind.Method,
-				data: 11
+				data: 7
 			},
 			{
 				label: 'in',
 				kind: CompletionItemKind.Keyword,
-				data: 12
+				data: 8
 			},
 			{
 				label: 'null',
 				kind: CompletionItemKind.Keyword,
-				data: 13
-			},
-			{
-				label: 'print()',
-				kind: CompletionItemKind.Method,
-				data: 14
-			},
-			{
-				label: 'append()',
-				kind: CompletionItemKind.Method,
-				data: 15
-			},
-			{
-				label: 'delete()',
-				kind: CompletionItemKind.Method,
-				data: 16
+				data: 9
 			},
 			{
 				label: 'rule',
 				kind: CompletionItemKind.Keyword,
-				data: 17
+				data: 10
 			},
 			{
 				label: 'param',
 				kind: CompletionItemKind.Keyword,
-				data: 18
+				data: 11
 			},
 			{
 				label: 'default',
 				kind: CompletionItemKind.Keyword,
-				data: 19
-			},
-			{
-				label: 'range()',
-				kind: CompletionItemKind.Method,
-				data: 20
-			},
-			{
-				label: 'keys()',
-				kind: CompletionItemKind.Method,
-				data: 21
+				data: 12
 			},
 			{
 				label: 'map',
 				kind: CompletionItemKind.Keyword,
-				data: 22
+				data: 13
 			},
 			{
 				label: 'strings',
 				kind: CompletionItemKind.Keyword,
-				data: 23
+				data: 14
 			},
 			{
 				label: 'json',
 				kind: CompletionItemKind.Keyword,
-				data: 24
+				data: 15
 			},
 			{
 				label: 'http',
 				kind: CompletionItemKind.Keyword,
-				data: 25
+				data: 16
 			},
 			{
 				label: 'types',
 				kind: CompletionItemKind.Keyword,
-				data: 26
+				data: 17
 			},
 			{
 				label: 'decimal',
 				kind: CompletionItemKind.Keyword,
-				data: 27
+				data: 18
 			},
 			{
 				label: 'base64',
 				kind: CompletionItemKind.Keyword,
-				data: 28
+				data: 19
 			},
 			{
 				label: 'time',
 				kind: CompletionItemKind.Keyword,
-				data: 29
+				data: 20
+			},
+			{
+				label: 'print()',
+				kind: CompletionItemKind.Method,
+				data: 21
+			},
+			{
+				label: 'error()',
+				kind: CompletionItemKind.Method,
+				data: 22
+			},
+			{
+				label: 'length()',
+				kind: CompletionItemKind.Method,
+				data: 23
+			}, 
+			{
+				label: 'append()',
+				kind: CompletionItemKind.Method,
+				data: 24 
+			},
+			{
+				label: 'delete()',
+				kind: CompletionItemKind.Method,
+				data: 25
+			},
+			{
+				label: 'range()',
+				kind: CompletionItemKind.Method,
+				data: 26
+			},
+			{
+				label: 'keys()',
+				kind: CompletionItemKind.Method,
+				data: 27
+			},
+			{
+				label: 'values()',
+				kind: CompletionItemKind.Method,
+				data: 28
 			},
 		];
 	}
