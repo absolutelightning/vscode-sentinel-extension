@@ -230,7 +230,7 @@ connection.onCompletion(
 			{
 
 				label: 'length()',
-				kind: CompletionItemKind.Keyword,
+				kind: CompletionItemKind.Method,
 				data: 3
 			}, 
 			{
@@ -283,6 +283,21 @@ connection.onCompletion(
 				kind: CompletionItemKind.Method,
 				data: 14
 			},
+			{
+				label: 'append()',
+				kind: CompletionItemKind.Method,
+				data: 15
+			},
+			{
+				label: 'delete()',
+				kind: CompletionItemKind.Method,
+				data: 16
+			},
+			{
+				label: 'rule',
+				kind: CompletionItemKind.Keyword,
+				data: 17
+			}
 		];
 	}
 );

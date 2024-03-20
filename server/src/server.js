@@ -219,12 +219,12 @@ connection.onCompletion(function (_textDocumentPosition) {
     return [
         {
             label: 'import',
-            kind: node_1.CompletionItemKind.Text,
+            kind: node_1.CompletionItemKind.Keyword,
             data: 1
         },
         {
             label: 'for',
-            kind: node_1.CompletionItemKind.Text,
+            kind: node_1.CompletionItemKind.Keyword,
             data: 2
         },
         {
@@ -239,27 +239,27 @@ connection.onCompletion(function (_textDocumentPosition) {
         },
         {
             label: 'as',
-            kind: node_1.CompletionItemKind.Text,
+            kind: node_1.CompletionItemKind.Keyword,
             data: 5
         },
         {
             label: 'filter',
-            kind: node_1.CompletionItemKind.Text,
+            kind: node_1.CompletionItemKind.Keyword,
             data: 6
         },
         {
             label: 'if',
-            kind: node_1.CompletionItemKind.Text,
+            kind: node_1.CompletionItemKind.Keyword,
             data: 8
         },
         {
             label: 'break',
-            kind: node_1.CompletionItemKind.Text,
+            kind: node_1.CompletionItemKind.Keyword,
             data: 9
         },
         {
             label: 'continue',
-            kind: node_1.CompletionItemKind.Text,
+            kind: node_1.CompletionItemKind.Keyword,
             data: 10
         },
         {
@@ -269,12 +269,12 @@ connection.onCompletion(function (_textDocumentPosition) {
         },
         {
             label: 'in',
-            kind: node_1.CompletionItemKind.Text,
+            kind: node_1.CompletionItemKind.Keyword,
             data: 12
         },
         {
             label: 'null',
-            kind: node_1.CompletionItemKind.Text,
+            kind: node_1.CompletionItemKind.Keyword,
             data: 13
         },
         {
@@ -282,6 +282,21 @@ connection.onCompletion(function (_textDocumentPosition) {
             kind: node_1.CompletionItemKind.Method,
             data: 14
         },
+        {
+            label: 'append()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 15
+        },
+        {
+            label: 'delete()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 16
+        },
+        {
+            label: 'rule',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 17
+        }
     ];
 });
 // This handler resolves additional information for the item selected in
