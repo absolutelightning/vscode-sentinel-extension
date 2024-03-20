@@ -219,18 +219,18 @@ connection.onCompletion(
 		return [
 			{
 				label: 'import',
-				kind: CompletionItemKind.Text,
+				kind: CompletionItemKind.Keyword,
 				data: 1
 			},
 			{
 				label: 'for',
-				kind: CompletionItemKind.Text,
+				kind: CompletionItemKind.Keyword,
 				data: 2
 			},
 			{
 
 				label: 'length()',
-				kind: CompletionItemKind.Method,
+				kind: CompletionItemKind.Keyword,
 				data: 3
 			}, 
 			{
@@ -240,27 +240,27 @@ connection.onCompletion(
 			},
 			{
 				label: 'as',
-				kind: CompletionItemKind.Text,
+				kind: CompletionItemKind.Keyword,
 				data: 5
 			},
 			{
 				label: 'filter',
-				kind: CompletionItemKind.Text,
+				kind: CompletionItemKind.Keyword,
 				data: 6
 			},
 			{
 				label: 'if',
-				kind: CompletionItemKind.Text,
+				kind: CompletionItemKind.Keyword,
 				data: 8
 			},
 			{
 				label: 'break',
-				kind: CompletionItemKind.Text,
+				kind: CompletionItemKind.Keyword,
 				data: 9
 			},
 			{
 				label: 'continue',
-				kind: CompletionItemKind.Text,
+				kind: CompletionItemKind.Keyword,
 				data: 10
 			},
 			{
@@ -270,12 +270,12 @@ connection.onCompletion(
 			},
 			{
 				label: 'in',
-				kind: CompletionItemKind.Text,
+				kind: CompletionItemKind.Keyword,
 				data: 12
 			},
 			{
 				label: 'null',
-				kind: CompletionItemKind.Text,
+				kind: CompletionItemKind.Keyword,
 				data: 13
 			},
 			{
