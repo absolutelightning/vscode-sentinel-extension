@@ -310,12 +310,12 @@ connection.onCompletion(
 			},
 			{
 				label: 'range()',
-				kind: CompletionItemKind.Keyword,
+				kind: CompletionItemKind.Method,
 				data: 20
 			},
 			{
 				label: 'keys()',
-				kind: CompletionItemKind.Keyword,
+				kind: CompletionItemKind.Method,
 				data: 21
 			},
 			{
@@ -324,32 +324,32 @@ connection.onCompletion(
 				data: 22
 			},
 			{
-				label: '"strings"',
+				label: 'strings',
 				kind: CompletionItemKind.Keyword,
 				data: 23
 			},
 			{
-				label: '"json"',
+				label: 'json',
 				kind: CompletionItemKind.Keyword,
 				data: 24
 			},
 			{
-				label: '"http"',
+				label: 'http',
 				kind: CompletionItemKind.Keyword,
 				data: 25
 			},
 			{
-				label: '"types"',
+				label: 'types',
 				kind: CompletionItemKind.Keyword,
 				data: 26
 			},
 			{
-				label: '"decimal"',
+				label: 'decimal',
 				kind: CompletionItemKind.Keyword,
 				data: 27
 			},
 			{
-				label: '"base64"',
+				label: 'base64',
 				kind: CompletionItemKind.Keyword,
 				data: 28
 			},
