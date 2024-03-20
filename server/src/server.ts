@@ -297,7 +297,67 @@ connection.onCompletion(
 				label: 'rule',
 				kind: CompletionItemKind.Keyword,
 				data: 17
-			}
+			},
+			{
+				label: 'param',
+				kind: CompletionItemKind.Keyword,
+				data: 18
+			},
+			{
+				label: 'default',
+				kind: CompletionItemKind.Keyword,
+				data: 19
+			},
+			{
+				label: 'range()',
+				kind: CompletionItemKind.Method,
+				data: 20
+			},
+			{
+				label: 'keys()',
+				kind: CompletionItemKind.Method,
+				data: 21
+			},
+			{
+				label: 'map',
+				kind: CompletionItemKind.Keyword,
+				data: 22
+			},
+			{
+				label: 'strings',
+				kind: CompletionItemKind.Keyword,
+				data: 23
+			},
+			{
+				label: 'json',
+				kind: CompletionItemKind.Keyword,
+				data: 24
+			},
+			{
+				label: 'http',
+				kind: CompletionItemKind.Keyword,
+				data: 25
+			},
+			{
+				label: 'types',
+				kind: CompletionItemKind.Keyword,
+				data: 26
+			},
+			{
+				label: 'decimal',
+				kind: CompletionItemKind.Keyword,
+				data: 27
+			},
+			{
+				label: 'base64',
+				kind: CompletionItemKind.Keyword,
+				data: 28
+			},
+			{
+				label: 'time',
+				kind: CompletionItemKind.Keyword,
+				data: 29
+			},
 		];
 	}
 );
