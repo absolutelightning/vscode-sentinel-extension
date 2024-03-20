@@ -354,7 +354,7 @@ connection.onCompletion(
 				data: 28
 			},
 			{
-				label: '"time"',
+				label: 'time',
 				kind: CompletionItemKind.Keyword,
 				data: 29
 			},
