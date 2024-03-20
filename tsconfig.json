@@ -1,13 +1,13 @@
 {
-	"name": "lsp-sample",
+	"name": "absl-vscode-sentinel",
 	"description": "A language server example",
 	"author": "Microsoft Corporation",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Microsoft/vscode-extension-samples"
+		"url": "https://github.com/absolutelightning/vscode-sentinel-extension"
 	},
-	"publisher": "asheshvidyut",
+	"publisher": "absolutelightning",
 	"categories": [],
 	"keywords": [
 		"multi-root ready"
