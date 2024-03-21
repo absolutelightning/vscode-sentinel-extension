@@ -281,6 +281,231 @@ connection.onCompletion(
 			]
 		}
 
+		if (/types\.\s*$/.test(line)) {
+			return [
+				{
+					label: 'type_of()',
+					kind: CompletionItemKind.Method,
+					data: 1
+				},
+			]
+		}
+
+		if (/base64\.\s*$/.test(line)) {
+			return [
+				{
+					label: 'encode()',
+					kind: CompletionItemKind.Method,
+					data: 1
+				},
+				{
+					label: 'decode()',
+					kind: CompletionItemKind.Method,
+					data: 2
+				},
+				{
+					label: 'urlencode()',
+					kind: CompletionItemKind.Method,
+					data: 3
+				},
+				{
+					label: 'urldecode()',
+					kind: CompletionItemKind.Method,
+					data: 4
+				},
+			]
+		}
+
+		if (/time\.\s*$/.test(line)) {
+			return [
+				{
+					label: 'now',
+					kind: CompletionItemKind.Field,
+					data: 1
+				},
+				{
+					label: 'load()',
+					kind: CompletionItemKind.Method,
+					data: 2
+				},
+				{
+					label: 'second',
+					kind: CompletionItemKind.Field,
+					data: 3
+				},
+				{
+					label: 'millisecond',
+					kind: CompletionItemKind.Field,
+					data: 4
+				},
+				{
+					label: 'nanosecond',
+					kind: CompletionItemKind.Field,
+					data: 5
+				},
+				{
+					label: 'microsecond',
+					kind: CompletionItemKind.Field,
+					data: 6
+				},
+				{
+					label: 'minute',
+					kind: CompletionItemKind.Field,
+					data: 7
+				},
+				{
+					label: 'hour',
+					kind: CompletionItemKind.Field,
+					data: 8
+				},
+			]
+		}
+
+		if (/decimal\.\s*$/.test(line)) {
+			return [
+				{
+					label: 'infinity()',
+					kind: CompletionItemKind.Method,
+					data: 1
+				},
+				{
+					label: 'new()',
+					kind: CompletionItemKind.Method,
+					data: 2
+				},
+				{
+					label: 'is_nan()',
+					kind: CompletionItemKind.Method,
+					data: 3
+				},
+				{
+					label: 'nan',
+					kind: CompletionItemKind.Field,
+					data: 4
+				},
+				{
+					label: 'is_infinite()',
+					kind: CompletionItemKind.Method,
+					data: 5
+				},
+				{
+					label: 'string',
+					kind: CompletionItemKind.Field,
+					data: 6
+				},
+				{
+					label: 'sign',
+					kind: CompletionItemKind.Field,
+					data: 7
+				},
+				{
+					label: 'coefficient',
+					kind: CompletionItemKind.Field,
+					data: 8
+				},
+				{
+					label: 'exponent',
+					kind: CompletionItemKind.Field,
+					data: 9
+				},
+				{
+					label: 'float',
+					kind: CompletionItemKind.Field,
+					data: 10
+				},
+				{
+					label: 'is()',
+					kind: CompletionItemKind.Method,
+					data: 11
+				},
+				{
+					label: 'is_not()',
+					kind: CompletionItemKind.Method,
+					data: 12
+				},
+				{
+					label: 'less_than()',
+					kind: CompletionItemKind.Method,
+					data: 13
+				},
+				{
+					label: 'less_than_or_equals()',
+					kind: CompletionItemKind.Method,
+					data: 14
+				},
+				{
+					label: 'greater_than()',
+					kind: CompletionItemKind.Method,
+					data: 15
+				},
+				{
+					label: 'greater_than_or_equals()',
+					kind: CompletionItemKind.Method,
+					data: 16
+				},
+				{
+					label: 'add()',
+					kind: CompletionItemKind.Method,
+					data: 17
+				},
+				{
+					label: 'substract()',
+					kind: CompletionItemKind.Method,
+					data: 17
+				},
+				{
+					label: 'multiply()',
+					kind: CompletionItemKind.Method,
+					data: 18
+				},
+				{
+					label: 'divide()',
+					kind: CompletionItemKind.Method,
+					data: 19
+				},
+				{
+					label: 'modulo()',
+					kind: CompletionItemKind.Method,
+					data: 20
+				},
+				{
+					label: 'power()',
+					kind: CompletionItemKind.Method,
+					data: 21
+				},
+				{
+					label: 'loge()',
+					kind: CompletionItemKind.Method,
+					data: 22
+				},
+				{
+					label: 'sqaure_root()',
+					kind: CompletionItemKind.Method,
+					data: 23
+				},
+				{
+					label: 'ceiling()',
+					kind: CompletionItemKind.Method,
+					data: 24
+				},
+				{
+					label: 'floor()',
+					kind: CompletionItemKind.Method,
+					data: 25
+				},
+				{
+					label: 'absolute()',
+					kind: CompletionItemKind.Method,
+					data: 26
+				},
+				{
+					label: 'negate()',
+					kind: CompletionItemKind.Method,
+					data: 26
+				}
+			]
+		}
+
 
 		return [
 			{
