@@ -229,6 +229,227 @@ connection.onCompletion((_textDocumentPosition) => {
             },
         ];
     }
+    if (/types\.\s*$/.test(line)) {
+        return [
+            {
+                label: 'type_of()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 1
+            },
+        ];
+    }
+    if (/base64\.\s*$/.test(line)) {
+        return [
+            {
+                label: 'encode()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 1
+            },
+            {
+                label: 'decode()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 2
+            },
+            {
+                label: 'urlencode()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 3
+            },
+            {
+                label: 'urldecode()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 4
+            },
+        ];
+    }
+    if (/time\.\s*$/.test(line)) {
+        return [
+            {
+                label: 'now',
+                kind: node_1.CompletionItemKind.Field,
+                data: 1
+            },
+            {
+                label: 'load()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 2
+            },
+            {
+                label: 'second',
+                kind: node_1.CompletionItemKind.Field,
+                data: 3
+            },
+            {
+                label: 'millisecond',
+                kind: node_1.CompletionItemKind.Field,
+                data: 4
+            },
+            {
+                label: 'nanosecond',
+                kind: node_1.CompletionItemKind.Field,
+                data: 5
+            },
+            {
+                label: 'microsecond',
+                kind: node_1.CompletionItemKind.Field,
+                data: 6
+            },
+            {
+                label: 'minute',
+                kind: node_1.CompletionItemKind.Field,
+                data: 7
+            },
+            {
+                label: 'hour',
+                kind: node_1.CompletionItemKind.Field,
+                data: 8
+            },
+        ];
+    }
+    if (/decimal\.\s*$/.test(line)) {
+        return [
+            {
+                label: 'infinity()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 1
+            },
+            {
+                label: 'new()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 2
+            },
+            {
+                label: 'is_nan()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 3
+            },
+            {
+                label: 'nan',
+                kind: node_1.CompletionItemKind.Field,
+                data: 4
+            },
+            {
+                label: 'is_infinite()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 5
+            },
+            {
+                label: 'string',
+                kind: node_1.CompletionItemKind.Field,
+                data: 6
+            },
+            {
+                label: 'sign',
+                kind: node_1.CompletionItemKind.Field,
+                data: 7
+            },
+            {
+                label: 'coefficient',
+                kind: node_1.CompletionItemKind.Field,
+                data: 8
+            },
+            {
+                label: 'exponent',
+                kind: node_1.CompletionItemKind.Field,
+                data: 9
+            },
+            {
+                label: 'float',
+                kind: node_1.CompletionItemKind.Field,
+                data: 10
+            },
+            {
+                label: 'is()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 11
+            },
+            {
+                label: 'is_not()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 12
+            },
+            {
+                label: 'less_than()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 13
+            },
+            {
+                label: 'less_than_or_equals()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 14
+            },
+            {
+                label: 'greater_than()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 15
+            },
+            {
+                label: 'greater_than_or_equals()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 16
+            },
+            {
+                label: 'add()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 17
+            },
+            {
+                label: 'substract()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 17
+            },
+            {
+                label: 'multiply()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 18
+            },
+            {
+                label: 'divide()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 19
+            },
+            {
+                label: 'modulo()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 20
+            },
+            {
+                label: 'power()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 21
+            },
+            {
+                label: 'loge()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 22
+            },
+            {
+                label: 'sqaure_root()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 23
+            },
+            {
+                label: 'ceiling()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 24
+            },
+            {
+                label: 'floor()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 25
+            },
+            {
+                label: 'absolute()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 26
+            },
+            {
+                label: 'negate()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 26
+            }
+        ];
+    }
     return [
         {
             label: 'import',
