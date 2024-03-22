@@ -281,6 +281,36 @@ connection.onCompletion(
 			]
 		}
 
+		if (/http\.\s*$/.test(line)) {
+			return [
+				{
+					label: 'get()',
+					kind: CompletionItemKind.Method,
+					data: 1
+				},
+				{
+					label: 'request()',
+					kind: CompletionItemKind.Method,
+					data: 2
+				},
+				{
+					label: 'post()',
+					kind: CompletionItemKind.Method,
+					data: 3
+				},
+				{
+					label: 'client',
+					kind: CompletionItemKind.Field,
+					data: 4
+				},
+				{
+					label: 'accept_status_codes',
+					kind: CompletionItemKind.Function,
+					data: 5
+				}
+			]
+		}
+
 		if (/types\.\s*$/.test(line)) {
 			return [
 				{
@@ -502,7 +532,7 @@ connection.onCompletion(
 					label: 'negate()',
 					kind: CompletionItemKind.Method,
 					data: 26
-				}
+				},
 			]
 		}
 
@@ -648,6 +678,61 @@ connection.onCompletion(
 				kind: CompletionItemKind.Method,
 				data: 28
 			},
+			{
+				label: 'int()',
+				kind: CompletionItemKind.Method,
+				data: 29
+			},
+			{
+				label: 'string()',
+				kind: CompletionItemKind.Method,
+				data: 30
+			},
+			{
+				label: 'float()',
+				kind: CompletionItemKind.Method,
+				data: 30
+			},
+			{
+				label: 'bool()',
+				kind: CompletionItemKind.Method,
+				data: 31
+			},
+			{
+				label: 'case',
+				kind: CompletionItemKind.Method,
+				data: 32
+			},
+			{
+				label: 'when',
+				kind: CompletionItemKind.Method,
+				data: 33
+			},
+			{
+				label: 'all',
+				kind: CompletionItemKind.Method,
+				data: 34
+			},
+			{
+				label: 'any',
+				kind: CompletionItemKind.Method,
+				data: 35
+			},
+			{
+				label: 'func()',
+				kind: CompletionItemKind.Method,
+				data: 36
+			},
+			{
+				label: 'return',
+				kind: CompletionItemKind.Keyword,
+				data: 37
+			},
+			{
+				label: 'undefined',
+				kind: CompletionItemKind.Keyword,
+				data: 37
+			}
 		];
 	}
 );
