@@ -278,6 +278,35 @@ connection.onCompletion(function (_textDocumentPosition) {
             },
         ];
     }
+    if (/http\.\s*$/.test(line)) {
+        return [
+            {
+                label: 'get()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 1
+            },
+            {
+                label: 'request()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 2
+            },
+            {
+                label: 'post()',
+                kind: node_1.CompletionItemKind.Method,
+                data: 3
+            },
+            {
+                label: 'client',
+                kind: node_1.CompletionItemKind.Field,
+                data: 4
+            },
+            {
+                label: 'accept_status_codes',
+                kind: node_1.CompletionItemKind.Function,
+                data: 5
+            }
+        ];
+    }
     if (/types\.\s*$/.test(line)) {
         return [
             {
@@ -496,7 +525,7 @@ connection.onCompletion(function (_textDocumentPosition) {
                 label: 'negate()',
                 kind: node_1.CompletionItemKind.Method,
                 data: 26
-            }
+            },
         ];
     }
     return [
@@ -640,6 +669,61 @@ connection.onCompletion(function (_textDocumentPosition) {
             kind: node_1.CompletionItemKind.Method,
             data: 28
         },
+        {
+            label: 'int()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 29
+        },
+        {
+            label: 'string()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 30
+        },
+        {
+            label: 'float()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 30
+        },
+        {
+            label: 'bool()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 31
+        },
+        {
+            label: 'case',
+            kind: node_1.CompletionItemKind.Method,
+            data: 32
+        },
+        {
+            label: 'when',
+            kind: node_1.CompletionItemKind.Method,
+            data: 33
+        },
+        {
+            label: 'all',
+            kind: node_1.CompletionItemKind.Method,
+            data: 34
+        },
+        {
+            label: 'any',
+            kind: node_1.CompletionItemKind.Method,
+            data: 35
+        },
+        {
+            label: 'func()',
+            kind: node_1.CompletionItemKind.Method,
+            data: 36
+        },
+        {
+            label: 'return',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 37
+        },
+        {
+            label: 'undefined',
+            kind: node_1.CompletionItemKind.Keyword,
+            data: 37
+        }
     ];
 });
 // This handler resolves additional information for the item selected in
